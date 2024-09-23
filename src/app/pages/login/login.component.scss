@@ -1,0 +1,26 @@
+.init {
+    transition: cubic-bezier(0.4, 0, 0.2, 1) .4s;
+}
+
+.init.hide {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.continueEmail {
+    transition: cubic-bezier(0.4, 0, 0.2, 1) .4s;
+}
+
+.continueEmail.hide {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.checkEmail {
+    transition: cubic-bezier(0.4, 0, 0.2, 1) .4s;
+}
+
+.checkEmail.hide {
+    transform: scale(0);
+    opacity: 0;
+}

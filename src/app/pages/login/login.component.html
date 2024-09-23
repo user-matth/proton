@@ -1,0 +1,30 @@
+<div class="bg-zinc-950 w-screen h-screen overflow-hidden flex items-center justify-center text-white">
+  <div class="w-full h-full relative">
+    <div class="h-[300px] flex items-end justify-center w-full pb-6">
+      <svg width="65" height="65" viewBox="0 0 65 65" fill="white" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8"><path fill-rule="evenodd" clip-rule="evenodd" d="M34.8807 0L29.1869 0V8.77821C29.1869 20.3762 19.7849 29.7782 8.1869 29.7782H0V36H8.1869C19.7849 36 29.1869 45.402 29.1869 57V64.7782H34.8807V57C34.8807 45.402 44.2828 36 55.8807 36H64.7782V29.7782H55.8807C44.2828 29.7782 34.8807 20.3762 34.8807 8.77821V0Z" fill="white"/></svg>      
+    </div>
+    <div class="h-full w-full bg-transparent flex flex-col items-center justify-start relative transition-colors">
+      <div class="init {{ currentStep == 1 ? '' : 'hide' }} flex flex-col items-center justify-start max-w-[350px] w-full absolute top-0 left-[50%] translate-x-[-50%]">
+        <h1 class="text-2xl font-medium text-center mb-8">Login to Proton</h1>
+        <div class="flex flex-col gap-4 w-full">
+          <button class="w-full bg-blue-700 hover:bg-blue-600 py-3 rounded-md text-sm">Continue com Google</button>
+          <button class="w-full bg-zinc-800 hover:bg-zinc-700 py-3 rounded-md text-sm" (click)="nextStep()">Continue com email</button>
+        </div>
+      </div>
+      <div class="continueEmail {{ currentStep == 2 ? '' : 'hide' }} flex flex-col items-center justify-start max-w-[350px] w-full absolute top-0 left-[50%] translate-x-[-50%]">
+        <h1 class="text-2xl font-medium text-center mb-8">Qual o seu email?</h1>
+        <div class="flex flex-col gap-4 w-full">
+          <input type="email" class="w-full bg-zinc-900 border-2 outline-0 border-zinc-800 transition-colors hover:border-zinc-700 focus:border-zinc-700 py-3 px-4 rounded-md text-sm" placeholder="Coloque seu endereço de email..." [(ngModel)]="email" />
+          <button class="w-full bg-zinc-800 hover:bg-zinc-700 disabled:bg-zinc-700 disabled:hover:bg-zinc-700 disabled:text-white/50 py-3 rounded-md text-sm" (click)="sendLink()" [disabled]="email == ''">Continue com email</button>
+          <p class="text-zinc-400 hover:text-white text-sm text-center w-full cursor-pointer mt-2" (click)="previousStep()">Voltar ao login</p>
+        </div>
+      </div>
+      <div class="checkEmail {{ currentStep == 3 ? '' : 'hide' }} flex flex-col items-center justify-start w-full absolute top-0 left-[50%] translate-x-[-50%]">
+        <h1 class="text-2xl font-medium text-center mb-8">Confira seu email</h1>
+        <p class="text-center font-light">Nós enviamos um link temporário no seu email.</p>
+        <p class="text-center font-light">Por favor confira sua caixa de entrada no <span class="font-medium">{{email}}</span></p>
+        <p class="text-zinc-400 hover:text-white text-sm text-center w-full cursor-pointer mt-12" (click)="previousStep(1)">Voltar ao login</p>
+      </div>
+    </div>
+  </div>
+</div>
